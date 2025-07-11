@@ -1,3 +1,257 @@
-@import "tailwindcss/preflight";
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import "tailwindcss";
-@tailwind utilities;
+
+@theme {
+  --color-gray-10: #f0f0f3;
+  --color-gray-20: #e8e8e8;
+  --color-gray-30: #d8d8d8;
+  --color-gray-hover: #dcdcdc;
+
+  --color-accent: #6b6ef9;
+  --color-favorite: #ef4444;
+  --color-sub-text: #555555;
+  --color-sub-text-2: #777777;
+
+  --color-shadow-color: rgba(0, 0, 0, 0.1);
+  --color-shadow-highlight: rgba(255, 255, 255, 0.8);
+
+  --color-border-gray-20: #d1d1d1;
+  --color-border-gray-30: #ccc;
+
+  --shadow-neumorphism-xs:
+    3px 3px 6px var(--color-shadow-color),
+    -3px -3px 6px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-xs-active:
+    inset 2px 2px 4px var(--color-shadow-color),
+    inset -2px -2px 4px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-sm:
+    5px 5px 10px var(--color-shadow-color),
+    -5px -5px 10px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-sm-active:
+    inset 3px 3px 6px var(--color-shadow-color),
+    inset -3px -3px 6px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-md:
+    6px 6px 12px var(--color-shadow-color),
+    -6px -6px 12px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-md-active:
+    inset 4px 4px 8px var(--color-shadow-color),
+    inset -4px -4px 8px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-lg:
+    8px 8px 16px var(--color-shadow-color),
+    -8px -8px 16px var(--color-shadow-highlight);
+
+  --shadow-neumorphism-dot:
+    inset 2px 2px 4px var(--color-shadow-color),
+    inset -2px -2px 4px var(--color-shadow-highlight);
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-10 min-h-screen min-w-screen overflow-x-hidden text-base leading-relaxed text-gray-800 antialiased;
+    color: #333333;
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  h4 {
+    @apply text-lg font-medium;
+  }
+
+  h5 {
+    @apply text-base font-medium;
+  }
+
+  h6 {
+    @apply text-sm font-medium tracking-wide uppercase;
+  }
+
+  span {
+    @apply inline leading-none;
+  }
+
+  a {
+    @apply text-inherit;
+  }
+
+  ul,
+  ol {
+    @apply mb-4 ml-6 list-none;
+  }
+
+  button {
+    @apply rounded-md px-4 py-2 font-medium transition-all duration-200;
+  }
+
+  input,
+  textarea {
+    @apply focus:ring-accent rounded-sm border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none;
+  }
+}
+
+@layer components {
+  /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+  .section-container {
+    @apply w-full py-12;
+  }
+
+  .section-content {
+    @apply mx-auto flex h-full w-full max-w-[1200px] justify-between px-4;
+  }
+
+  .zigzag > *:nth-child(even) {
+    @apply translate-y-8;
+  }
+  .zigzag > *:nth-child(even):hover {
+    @apply shadow-neumorphism-lg translate-y-7;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+  .flex-end {
+    @apply flex items-center justify-end;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+  .flex-col-start {
+    @apply flex flex-col items-start justify-center;
+  }
+  .flex-col-end {
+    @apply flex flex-col items-end justify-center;
+  }
+
+  .transition-quick {
+    @apply transition-all duration-150 ease-in-out;
+  }
+  .transition-base {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .btn-icon-xs {
+    @apply shadow-neumorphism-xs flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .btn-icon-xs:active {
+    @apply shadow-neumorphism-xs-active;
+  }
+
+  .btn-icon {
+    @apply shadow-neumorphism-sm flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .btn-icon:active {
+    @apply shadow-neumorphism-sm-active;
+  }
+
+  .btn-icon-in-card {
+    @apply shadow-neumorphism-xs flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .btn-icon-in-card:active {
+    @apply shadow-neumorphism-xs-active;
+  }
+
+  .btn {
+    @apply shadow-neumorphism-sm flex h-10 w-full cursor-pointer items-center justify-center rounded-xl bg-inherit px-6 whitespace-nowrap transition-all duration-300 ease-in-out select-none;
+  }
+  .btn:hover {
+    @apply text-accent;
+  }
+  .btn:active {
+    @apply shadow-neumorphism-sm-active;
+  }
+
+  .btn-in-card {
+    @apply shadow-neumorphism-xs flex h-10 w-full cursor-pointer items-center justify-center rounded-lg bg-inherit px-4 whitespace-nowrap transition-all duration-300 ease-in-out select-none;
+  }
+  .btn-in-card:hover {
+    @apply text-accent;
+  }
+  .btn-in-card:active {
+    @apply shadow-neumorphism-xs-active;
+  }
+
+  .card {
+    @apply shadow-neumorphism-sm relative flex h-full w-full flex-col items-center justify-start overflow-hidden rounded-xl bg-inherit transition-all duration-300 ease-in-out;
+  }
+  .card:hover {
+    @apply shadow-neumorphism-lg -translate-y-1;
+  }
+
+  .card-static-col {
+    @apply shadow-neumorphism-sm relative flex h-full w-full flex-col items-center justify-start overflow-hidden rounded-xl bg-inherit p-4;
+  }
+
+  .card-static-row {
+    @apply shadow-neumorphism-sm relative flex h-full w-full items-center justify-between overflow-hidden rounded-xl bg-inherit p-4;
+  }
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* ==== Custom Scrollbar Global ==== */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #aaa transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}

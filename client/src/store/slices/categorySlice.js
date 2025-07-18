@@ -2,8 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentCategory: null,
-  allProducts: null,
+  listProductsAll: null,
+  listProductsCategory: [],
+  listProductsSearch: [],
   listProductsOrigin: [],
+  listProductsBrand: [],
+  listProductsPrice: [],
   listProductsRender: [],
   paginatedProducts: [],
   openFilter: false,
@@ -11,7 +15,8 @@ const initialState = {
   selectedSort: "popular",
   filteredBrands: [],
   selectedOptionPrice: "all Prices",
-  filteredPrice: [],
+  filteredPrices: [],
+  searchInput: "",
 };
 
 const categorySlice = createSlice({
@@ -22,13 +27,29 @@ const categorySlice = createSlice({
       console.log("setCurrentCategory:", action.payload);
       state.currentCategory = action.payload;
     },
-    setAllProducts: (state, action) => {
-      console.log("setAllProducts:", action.payload);
-      state.allProducts = action.payload;
+    setListProductsAll: (state, action) => {
+      console.log("setListProductsAll:", action.payload);
+      state.listProductsAll = action.payload;
+    },
+    setListProductsCategory: (state, action) => {
+      console.log("setListProductsCategory:", action.payload);
+      state.listProductsCategory = action.payload;
+    },
+    setListProductsSearch: (state, action) => {
+      console.log("setListProductsSearch:", action.payload);
+      state.listProductsSearch = action.payload;
     },
     setListProductsOrigin: (state, action) => {
       console.log("setListProductsOrigin:", action.payload);
       state.listProductsOrigin = action.payload;
+    },
+    setListProductsBrand: (state, action) => {
+      console.log("setListProductsBrand:", action.payload);
+      state.listProductsBrand = action.payload;
+    },
+    setListProductsPrice: (state, action) => {
+      console.log("setListProductsPrice:", action.payload);
+      state.listProductsPrice = action.payload;
     },
     setListProductsRender: (state, action) => {
       console.log("setListProductsRender:", action.payload);
@@ -39,7 +60,7 @@ const categorySlice = createSlice({
       state.paginatedProducts = action.payload;
     },
     setOpenFilter: (state, action) => {
-      console.log("setOpenFilter:", action.payload);
+      // console.log("setOpenFilter:", action.payload);
       state.openFilter = action.payload;
     },
     setSizePage: (state, action) => {
@@ -47,28 +68,36 @@ const categorySlice = createSlice({
       state.sizePage = action.payload;
     },
     setSelectedSort: (state, action) => {
-      console.log("setSelectedSort:", action.payload);
+      // console.log("setSelectedSort:", action.payload);
       state.selectedSort = action.payload;
     },
     setFilteredBrands: (state, action) => {
-      console.log("setFilteredBrands:", action.payload);
+      // console.log("setFilteredBrands:", action.payload);
       state.filteredBrands = action.payload;
     },
     setSelectedOptionPrice: (state, action) => {
-      console.log("setSelectedOptionPrice:", action.payload);
+      // console.log("setSelectedOptionPrice:", action.payload);
       state.selectedOptionPrice = action.payload;
     },
-    setFilteredPrice: (state, action) => {
-      console.log("setFilteredPrice:", action.payload);
-      state.filteredPrice = action.payload;
+    setFilteredPrices: (state, action) => {
+      console.log("setFilteredPrices:", action.payload);
+      state.filteredPrices = action.payload;
+    },
+    setSearchInput: (state, action) => {
+      console.log("setSearchInput:", action.payload);
+      state.searchInput = action.payload;
     },
   },
 });
 
 export const {
   setCurrentCategory,
-  setAllProducts,
+  setListProductsAll,
+  setListProductsCategory,
+  setListProductsSearch,
   setListProductsOrigin,
+  setListProductsBrand,
+  setListProductsPrice,
   setListProductsRender,
   setPaginatedProducts,
   setOpenFilter,
@@ -76,7 +105,8 @@ export const {
   setSelectedSort,
   setFilteredBrands,
   setSelectedOptionPrice,
-  setFilteredPrice,
+  setFilteredPrices,
+  setSearchInput,
 } = categorySlice.actions;
 
 export default categorySlice;

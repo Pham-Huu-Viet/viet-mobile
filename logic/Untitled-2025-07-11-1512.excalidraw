@@ -1,0 +1,86 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "http://tauri.localhost",
+  "elements": [
+    {
+      "id": "hrlV3JXbYSS2LwwueEmAN",
+      "type": "rectangle",
+      "x": 618,
+      "y": 146.8000030517578,
+      "width": 405.60003662109375,
+      "height": 94.4000244140625,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "a8",
+      "roundness": {
+        "type": 3
+      },
+      "seed": 698214176,
+      "version": 119,
+      "versionNonce": 747634407,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "D1VU5LRDsKE9NPz1lpzLq"
+        }
+      ],
+      "updated": 1752460148453,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "D1VU5LRDsKE9NPz1lpzLq",
+      "type": "text",
+      "x": 793.368049621582,
+      "y": 184.00001525878906,
+      "width": 54.86393737792969,
+      "height": 20,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "#ffec99",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "a9",
+      "roundness": null,
+      "seed": 460289065,
+      "version": 8,
+      "versionNonce": 1409940265,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1752460150646,
+      "link": null,
+      "locked": false,
+      "text": "hahaha",
+      "fontSize": 16,
+      "fontFamily": 5,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "hrlV3JXbYSS2LwwueEmAN",
+      "originalText": "hahaha",
+      "autoResize": true,
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

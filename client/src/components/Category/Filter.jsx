@@ -5,7 +5,9 @@ import useGetDataStore from "../../hook/useGetDataStore";
 import { useDispatch } from "react-redux";
 import {
   setFilteredBrands,
-  setFilteredPrice,
+  setFilteredPrices,
+  setListProductsBrand,
+  setListProductsPrice,
   setListProductsRender,
   setOpenFilter,
   setSelectedOptionPrice,
@@ -17,38 +19,72 @@ export default function Filter() {
   const {
     openFilter,
     listProductsOrigin,
+    listProductsBrand,
+    listProductsPrice,
     filteredBrands,
-    filteredPrice,
+    filteredPrices,
     selectedSort,
   } = useGetDataStore();
 
+  const [preFilteredBrands, setPreFilteredBrands] = useState([]);
+  const [preFilteredPrices, setPreFilteredPrices] = useState([]);
   const [isResetSlider, setIsResetSlider] = useState(false);
+  const [isFiltered, setIsFiltered] = useState(false);
 
-  console.log("listProductsOrigin:", listProductsOrigin);
+  console.log("preFilteredBrands:", preFilteredBrands);
+  console.log("preFilteredPrices:", preFilteredPrices);
+  console.log("isFiltered:", isFiltered);
 
   useEffect(() => {
-    let result = Array.isArray(listProductsOrigin)
-      ? [...listProductsOrigin]
-      : [];
+    if (filteredBrands?.length > 0 || filteredPrices?.length > 0)
+      setIsFiltered(true);
+  }, [filteredBrands, filteredPrices]);
 
-    // Filter brands
-    if (filteredBrands?.length > 0) {
-      result = result?.filter((product) =>
-        filteredBrands.includes(product.brand),
-      );
+  useEffect(() => {
+    const brandsChanged =
+      JSON.stringify(preFilteredBrands) !== JSON.stringify(filteredBrands);
+    const pricesChanged =
+      JSON.stringify(preFilteredPrices) !== JSON.stringify(filteredPrices);
+
+    if (brandsChanged || pricesChanged) {
+      setIsFiltered(false);
     }
+  }, [preFilteredBrands, preFilteredPrices, filteredBrands, filteredPrices]);
 
-    // Filter prices
-    if (filteredPrice?.length > 0) {
-      result = result?.filter(
+  // Filter brands
+  useEffect(() => {
+    if (listProductsOrigin?.length > 0 && preFilteredBrands?.length > 0) {
+      const result = listProductsOrigin?.filter((product) =>
+        preFilteredBrands.includes(product.brand),
+      );
+      dispatch(setListProductsBrand(result));
+    } else {
+      dispatch(setListProductsBrand(listProductsOrigin));
+    }
+  }, [listProductsOrigin, preFilteredBrands]);
+
+  // Filter prices
+  useEffect(() => {
+    if (listProductsBrand?.length > 0 && filteredPrices?.length > 0) {
+      const result = listProductsBrand?.filter(
         (product) =>
-          product.price >= filteredPrice[0] &&
-          product.price <= filteredPrice[1],
+          product.price >= filteredPrices[0] &&
+          product.price <= filteredPrices[1],
       );
+      dispatch(setListProductsPrice(result));
+    } else {
+      dispatch(setListProductsPrice(listProductsBrand));
     }
+  }, [listProductsBrand, filteredPrices]);
 
-    // Sorting
+  // Sorting
+  useEffect(() => {
     if (selectedSort) {
+      let result =
+        filteredBrands?.length > 0 || filteredPrices?.length > 0
+          ? [...(listProductsPrice || [])]
+          : [...(listProductsOrigin || [])];
+
       switch (selectedSort) {
         case "popular":
           break;
@@ -72,18 +108,32 @@ export default function Filter() {
         default:
           break;
       }
-    }
 
-    dispatch(setListProductsRender(result));
-  }, [listProductsOrigin, filteredBrands, filteredPrice, selectedSort]);
+      dispatch(setListProductsRender(result));
+    }
+  }, [
+    listProductsPrice,
+    listProductsOrigin,
+    selectedSort,
+    filteredBrands,
+    filteredPrices,
+  ]);
 
   function handleOpenFilter() {
     dispatch(setOpenFilter(!openFilter));
   }
 
+  function handleApplyFilter() {
+    dispatch(setFilteredBrands(preFilteredBrands));
+    dispatch(setFilteredPrices(preFilteredPrices));
+  }
+
   function handleClearFilter() {
     dispatch(setFilteredBrands([]));
+    setPreFilteredBrands([]);
     dispatch(setSelectedOptionPrice("all Prices"));
+    dispatch(setFilteredPrices([]));
+    // setPreFilteredPrices([0, 0]);
     setIsResetSlider(true);
   }
 
@@ -101,13 +151,30 @@ export default function Filter() {
 
       {openFilter && (
         <>
-          <FilterBrands />
+          <FilterBrands
+            preFilteredBrands={preFilteredBrands}
+            setPreFilteredBrands={setPreFilteredBrands}
+            preFilteredPrices={preFilteredPrices}
+          />
+
           <FilterPrice
             isResetSlider={isResetSlider}
             setIsResetSlider={setIsResetSlider}
+            setPreFilteredPrices={setPreFilteredPrices}
+            preFilteredBrands={preFilteredBrands}
           />
-          <div className="btn-in-card" onClick={() => handleClearFilter()}>
-            Clear Filters
+
+          <div
+            className={`btn-in-card ${isFiltered ? "text-cancel" : "text-accent"}`}
+            onClick={() => {
+              if (isFiltered) {
+                handleClearFilter();
+              } else {
+                handleApplyFilter();
+              }
+            }}
+          >
+            {isFiltered ? "Clear Filters" : "Apply Filters"}
           </div>
         </>
       )}

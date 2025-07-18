@@ -5,9 +5,23 @@ export default function useGetDataStore() {
   const currentCategory = useSelector(
     (state) => state.categorySlice.currentCategory,
   );
-  const allProducts = useSelector((state) => state.categorySlice.allProducts);
+  const listProductsAll = useSelector(
+    (state) => state.categorySlice.listProductsAll,
+  );
+  const listProductsCategory = useSelector(
+    (state) => state.categorySlice.listProductsCategory,
+  );
+  const listProductsSearch = useSelector(
+    (state) => state.categorySlice.listProductsSearch,
+  );
   const listProductsOrigin = useSelector(
     (state) => state.categorySlice.listProductsOrigin,
+  );
+  const listProductsBrand = useSelector(
+    (state) => state.categorySlice.listProductsBrand,
+  );
+  const listProductsPrice = useSelector(
+    (state) => state.categorySlice.listProductsPrice,
   );
   const listProductsRender = useSelector(
     (state) => state.categorySlice.listProductsRender,
@@ -24,15 +38,30 @@ export default function useGetDataStore() {
   const selectedOptionPrice = useSelector(
     (state) => state.categorySlice.selectedOptionPrice,
   );
-  const filteredPrice = useSelector(
-    (state) => state.categorySlice.filteredPrice,
+  const filteredPrices = useSelector(
+    (state) => state.categorySlice.filteredPrices,
+  );
+  const searchInput = useSelector((state) => state.categorySlice.searchInput);
+
+  // cardSlice:
+  const listProductsCard = useSelector(
+    (state) => state.cardSlice.listProductsCard,
+  );
+
+  // promotionsSlice:
+  const listPromotions = useSelector(
+    (state) => state.promotionsSlice.listPromotions,
   );
 
   return {
     // categorySlice:
     currentCategory,
-    allProducts,
+    listProductsAll,
+    listProductsCategory,
+    listProductsSearch,
     listProductsOrigin,
+    listProductsBrand,
+    listProductsPrice,
     listProductsRender,
     paginatedProducts,
     openFilter,
@@ -40,6 +69,13 @@ export default function useGetDataStore() {
     selectedSort,
     filteredBrands,
     selectedOptionPrice,
-    filteredPrice,
+    filteredPrices,
+    searchInput,
+
+    // cardSlice:
+    listProductsCard,
+
+    // promotionsSlice:
+    listPromotions,
   };
 }

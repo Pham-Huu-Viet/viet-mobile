@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function CartButton() {
   return (
-    <NavLink className="btn-icon">
+    <NavLink to={"/cart"} className="btn-icon">
       <ShoppingCart />
     </NavLink>
   );

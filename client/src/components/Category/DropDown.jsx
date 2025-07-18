@@ -25,13 +25,20 @@ export default function DropDown({
           {options?.map((option, index) => (
             <div
               key={index}
-              className="hover:bg-gray-hover transition-quick w-full cursor-pointer px-4 py-2 leading-none select-none"
+              className="hover:bg-gray-hover transition-quick flex-between w-full cursor-pointer gap-4 px-4 py-2 leading-none whitespace-nowrap select-none"
               style={{
-                color: option == selectedOption ? "var(--color-accent)" : "",
+                color:
+                  option.label == selectedOption.label
+                    ? "var(--color-accent)"
+                    : "",
               }}
-              onClick={() => handleClick(option)}
+              onClick={() => handleClick(option.label)}
             >
-              {capitalize(option)}
+              {capitalize(option.label)}
+
+              {option.icon && (
+                <div className="flex-center text-sub-text">{option.icon}</div>
+              )}
             </div>
           ))}
         </motion.div>

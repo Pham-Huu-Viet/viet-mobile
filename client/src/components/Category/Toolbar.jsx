@@ -1,4 +1,15 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowDownAZ,
+  ArrowDownZA,
+  ArrowUp,
+  ChevronDown,
+  ChevronUp,
+  List,
+  ListOrdered,
+  ListPlus,
+  TrendingUp,
+} from "lucide-react";
 import DropDown from "./DropDown";
 import useGetDataStore from "../../hook/useGetDataStore";
 import { useDispatch } from "react-redux";
@@ -13,15 +24,49 @@ export default function Toolbar() {
 
   const [openSortOption, setOpenSortOption] = useState(false);
 
-  const sizePageOption = ["12 products", "24 products", "36 products"];
+  const sizePageOption = [
+    {
+      label: "12 products",
+      icon: <List size={16} />,
+    },
+    {
+      label: "24 products",
+      icon: <ListOrdered size={16} />,
+    },
+    {
+      label: "36 products",
+      icon: <ListPlus size={16} />,
+    },
+  ];
 
   const sortOption = [
-    "popular",
-    "ascending price",
-    "descending price",
-    "A-Z name",
-    "Z-A name",
+    {
+      label: "popular",
+      icon: <TrendingUp size={16} />,
+    },
+    {
+      label: "ascending price",
+      icon: <ArrowUp size={16} />,
+    },
+    {
+      label: "descending price",
+      icon: <ArrowDown size={16} />,
+    },
+    {
+      label: "A-Z name",
+      icon: <ArrowDownAZ size={16} />,
+    },
+    {
+      label: "Z-A name",
+      icon: <ArrowDownZA size={16} />,
+    },
   ];
+
+  const productShowingId =
+    paginatedProducts?.[paginatedProducts?.length - 1]?.id;
+  const productShowingIndex =
+    listProductsRender?.findIndex((product) => product.id == productShowingId) +
+    1;
 
   function handleOpenSizePageOption() {
     setOpenSizePageOption((prev) => !prev);
@@ -48,8 +93,7 @@ export default function Toolbar() {
   return (
     <div className="flex-between card-static-row h-fit flex-row overflow-visible">
       <div>
-        Showing {paginatedProducts?.length} / {listProductsRender?.length}{" "}
-        products
+        Showing {productShowingIndex} / {listProductsRender?.length} products
       </div>
       <div className="flex gap-4">
         <div className="relative">
@@ -69,7 +113,7 @@ export default function Toolbar() {
             selectedOption={`${sizePage} products`}
             condition={openSizePageOption}
             handleClick={handleSelectSizePageOption}
-            className="bg-gray-20 absolute top-[calc(100%+8px)] left-0 z-200"
+            className="bg-gray-20 absolute top-[calc(100%+8px)] right-0 z-200 min-w-fit"
           />
         </div>
 
@@ -87,7 +131,7 @@ export default function Toolbar() {
             selectedOption={selectedSort}
             condition={openSortOption}
             handleClick={handleSelectSortOption}
-            className="bg-gray-20 absolute top-[calc(100%+8px)] left-0 z-200"
+            className="bg-gray-20 absolute top-[calc(100%+8px)] right-0 z-200 min-w-fit"
           />
         </div>
       </div>

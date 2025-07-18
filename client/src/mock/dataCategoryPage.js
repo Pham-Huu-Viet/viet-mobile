@@ -26,10 +26,10 @@ export const categoriesMock = {
   },
 };
 
-export const allProductsMock = {
+export const listProductsAllMock = {
   phones: [
     {
-      id: "p1",
+      id: "4c281f35-3150-4b31-bbd7-574669c23879",
       name: "iPhone 15 Pro",
       price: 27990000,
       image: "/images/phones/iphone15pro.png",
@@ -37,7 +37,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "p2",
+      id: "e5354350-9bbf-4879-bc2a-833210d1cf52",
       name: "Samsung Galaxy S24",
       price: 22990000,
       image: "/images/phones/samsung-s24.png",
@@ -45,7 +45,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "p3",
+      id: "fdbacefb-0cef-4ac3-a6a4-35c2660502e6",
       name: "Xiaomi 14",
       price: 18990000,
       image: "/images/phones/xiaomi14.png",
@@ -53,7 +53,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "p4",
+      id: "b21f0a04-a85b-445c-98de-2635fd4b51f1",
       name: "Google Pixel 8",
       price: 19990000,
       image: "/images/phones/pixel8.png",
@@ -61,7 +61,7 @@ export const allProductsMock = {
       brand: "Google",
     },
     {
-      id: "p5",
+      id: "b52d0f59-c4ec-4466-aa7f-c28aecb92d38",
       name: "OPPO Find X7",
       price: 21990000,
       image: "/images/phones/iphone15pro.png",
@@ -69,7 +69,7 @@ export const allProductsMock = {
       brand: "OPPO",
     },
     {
-      id: "p6",
+      id: "efa62b38-5e6e-45c8-87c3-b3f3261da139",
       name: "Vivo X100 Pro",
       price: 23990000,
       image: "/images/phones/samsung-s24.png",
@@ -77,7 +77,7 @@ export const allProductsMock = {
       brand: "Vivo",
     },
     {
-      id: "p7",
+      id: "b0f1df96-bcf5-4443-8760-bc2dd1af7ea7",
       name: "iPhone 14 Pro",
       price: 23990000,
       image: "/images/phones/iphone15pro.png",
@@ -85,7 +85,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "p8",
+      id: "e573c8ed-48f5-4550-86e1-27abad2c057c",
       name: "Samsung Galaxy S23",
       price: 18990000,
       image: "/images/phones/samsung-s24.png",
@@ -93,7 +93,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "p9",
+      id: "2297912c-4e7d-4b07-bbd8-da55057ca37d",
       name: "Xiaomi 13T Pro",
       price: 15990000,
       image: "/images/phones/xiaomi14.png",
@@ -101,7 +101,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "p10",
+      id: "8f87b972-6f3d-4fe2-bc78-5f915576d985",
       name: "Google Pixel 7",
       price: 15990000,
       image: "/images/phones/pixel8.png",
@@ -109,7 +109,7 @@ export const allProductsMock = {
       brand: "Google",
     },
     {
-      id: "p11",
+      id: "3bc5960d-e344-4a76-8755-31cb18594197",
       name: "OPPO Reno 10 Pro",
       price: 14990000,
       image: "/images/phones/iphone15pro.png",
@@ -117,7 +117,7 @@ export const allProductsMock = {
       brand: "OPPO",
     },
     {
-      id: "p12",
+      id: "b75e4c7b-4c68-4cef-ab3f-fb448eb1345e",
       name: "Vivo V29",
       price: 12990000,
       image: "/images/phones/samsung-s24.png",
@@ -125,7 +125,7 @@ export const allProductsMock = {
       brand: "Vivo",
     },
     {
-      id: "p13",
+      id: "f0226cce-5f6a-4008-b49b-2eb4f161d3b0",
       name: "iPhone SE",
       price: 11990000,
       image: "/images/phones/iphone15pro.png",
@@ -133,7 +133,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "p14",
+      id: "62325a6a-3019-460d-846b-4f295d5e4a9d",
       name: "Samsung Galaxy A54",
       price: 9990000,
       image: "/images/phones/samsung-s24.png",
@@ -141,7 +141,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "p15",
+      id: "2b222a12-7234-4f64-a4ed-c9ac9e76b2a9",
       name: "Xiaomi Redmi Note 12",
       price: 4990000,
       image: "/images/phones/xiaomi14.png",
@@ -149,7 +149,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "p16",
+      id: "271db4cf-b3d0-4452-bc83-5f290702acbf",
       name: "OPPO A78",
       price: 5990000,
       image: "/images/phones/iphone15pro.png",
@@ -157,7 +157,7 @@ export const allProductsMock = {
       brand: "OPPO",
     },
     {
-      id: "p17",
+      id: "655632e0-b758-49b6-9c8b-19d5b4d946d6",
       name: "Vivo Y35",
       price: 4490000,
       image: "/images/phones/samsung-s24.png",
@@ -165,7 +165,7 @@ export const allProductsMock = {
       brand: "Vivo",
     },
     {
-      id: "p18",
+      id: "21039661-6375-46c9-a800-df74f24639da",
       name: "Samsung Galaxy A14",
       price: 3990000,
       image: "/images/phones/samsung-s24.png",
@@ -173,7 +173,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "p19",
+      id: "db8e6244-bf2b-4f9b-b00d-286413cc19e5",
       name: "Xiaomi Redmi 12C",
       price: 2790000,
       image: "/images/phones/xiaomi14.png",
@@ -181,7 +181,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "p20",
+      id: "e2956e37-1fee-4f75-945d-c1474ef8811d",
       name: "OPPO A17",
       price: 2990000,
       image: "/images/phones/iphone15pro.png",
@@ -189,7 +189,7 @@ export const allProductsMock = {
       brand: "OPPO",
     },
     {
-      id: "p21",
+      id: "73f5f09d-4ee2-4acc-8ed7-4bd45a17de65",
       name: "Vivo Y02s",
       price: 1990000,
       image: "/images/phones/samsung-s24.png",
@@ -197,7 +197,7 @@ export const allProductsMock = {
       brand: "Vivo",
     },
     {
-      id: "p22",
+      id: "564d7a06-61fc-430e-a79d-540666f2128e",
       name: "Xiaomi Redmi A1",
       price: 1790000,
       image: "/images/phones/xiaomi14.png",
@@ -207,7 +207,7 @@ export const allProductsMock = {
   ],
   tablets: [
     {
-      id: "t1",
+      id: "dfd5cb5a-7111-4139-8dd4-294018d9148f",
       name: "iPad Pro M2",
       price: 23990000,
       image: "/images/tablets/ipad-pro.png",
@@ -215,7 +215,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "t2",
+      id: "a4d6d34d-4bb1-409b-bc02-ca9dce548546",
       name: "Samsung Galaxy Tab S9",
       price: 19990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -223,7 +223,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "t3",
+      id: "0ea0339d-c84d-4f20-8cf7-ae686a16fe93",
       name: "Xiaomi Pad 6",
       price: 8990000,
       image: "/images/tablets/ipad-pro.png",
@@ -231,7 +231,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "t4",
+      id: "6acbf5e7-41ed-4eeb-821d-5b663a20f45f",
       name: "Lenovo Tab P12 Pro",
       price: 14990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -239,7 +239,7 @@ export const allProductsMock = {
       brand: "Lenovo",
     },
     {
-      id: "t5",
+      id: "f957daec-92ba-47c1-a1b6-394602856c89",
       name: "iPad Air",
       price: 16990000,
       image: "/images/tablets/ipad-pro.png",
@@ -247,7 +247,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "t6",
+      id: "746fc164-db7a-4265-b71b-4f4254cdbe53",
       name: "Samsung Galaxy Tab S8",
       price: 15990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -255,7 +255,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "t7",
+      id: "464874ab-f002-4058-85ff-0e07230a1c6f",
       name: "Xiaomi Pad 5",
       price: 7990000,
       image: "/images/tablets/ipad-pro.png",
@@ -263,7 +263,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "t8",
+      id: "a8c892fe-8a7d-4599-8802-2cda2924b6f7",
       name: "Lenovo Tab P11 Pro",
       price: 11990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -271,7 +271,7 @@ export const allProductsMock = {
       brand: "Lenovo",
     },
     {
-      id: "t9",
+      id: "ffffb44d-9fb2-460a-b286-7e4aefe484db",
       name: "iPad 10th Gen",
       price: 11990000,
       image: "/images/tablets/ipad-pro.png",
@@ -279,7 +279,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "t10",
+      id: "30e7f223-4d2c-4427-b482-aa8e27ab267e",
       name: "Samsung Galaxy Tab A8",
       price: 6990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -287,7 +287,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "t11",
+      id: "6b17d793-a7fb-443c-bbf9-70cb44c5acd9",
       name: "Lenovo Tab M10",
       price: 4990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -295,7 +295,7 @@ export const allProductsMock = {
       brand: "Lenovo",
     },
     {
-      id: "t12",
+      id: "99e2e43a-3295-4819-9c24-4f65bc121cc6",
       name: "iPad Mini",
       price: 13990000,
       image: "/images/tablets/ipad-pro.png",
@@ -303,7 +303,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "t13",
+      id: "93fc4a80-53c3-483b-86b0-eafcd15345d0",
       name: "Samsung Galaxy Tab A7 Lite",
       price: 3990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -311,7 +311,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "t14",
+      id: "01dca57a-7fb9-4ec9-87ac-f52cd18a5070",
       name: "Xiaomi Redmi Pad",
       price: 5990000,
       image: "/images/tablets/ipad-pro.png",
@@ -319,7 +319,7 @@ export const allProductsMock = {
       brand: "Xiaomi",
     },
     {
-      id: "t15",
+      id: "c60febe7-6ba7-4de2-a568-52c5069aae07",
       name: "Lenovo Tab M8",
       price: 2990000,
       image: "/images/tablets/galaxy-tab.png",
@@ -329,7 +329,7 @@ export const allProductsMock = {
   ],
   headphones: [
     {
-      id: "h1",
+      id: "5d452b92-b082-4f76-bae2-14b5022585ab",
       name: "AirPods Pro 2",
       price: 5990000,
       image: "/images/headphones/airpods-pro.png",
@@ -337,7 +337,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "h2",
+      id: "20157b2c-8878-4659-a569-f9b9efd3afe4",
       name: "Sony WH-1000XM5",
       price: 8490000,
       image: "/images/headphones/sony-wh1000xm5.png",
@@ -345,7 +345,7 @@ export const allProductsMock = {
       brand: "Sony",
     },
     {
-      id: "h3",
+      id: "d5f5aedf-6e2f-4982-a37d-48dfefd2ef7b",
       name: "Bose QuietComfort Ultra",
       price: 9990000,
       image: "/images/headphones/airpods-pro.png",
@@ -353,7 +353,7 @@ export const allProductsMock = {
       brand: "Bose",
     },
     {
-      id: "h4",
+      id: "75670c5d-7b26-49d0-ac1e-622a67d34c5c",
       name: "Samsung Galaxy Buds 3 Pro",
       price: 4990000,
       image: "/images/headphones/sony-wh1000xm5.png",
@@ -361,7 +361,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "h5",
+      id: "1004a3bd-1fe3-4f75-b48d-d8c55aa509a5",
       name: "JBL Live Pro 2",
       price: 3490000,
       image: "/images/headphones/airpods-pro.png",
@@ -369,7 +369,7 @@ export const allProductsMock = {
       brand: "JBL",
     },
     {
-      id: "h6",
+      id: "b81ec0da-8388-4a13-9b8e-8212e6cda9e6",
       name: "AirPods Max",
       price: 12990000,
       image: "/images/headphones/airpods-pro.png",
@@ -377,7 +377,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "h7",
+      id: "9da3a971-a027-4bd7-9227-e3a20484632a",
       name: "Sony WF-1000XM5",
       price: 6490000,
       image: "/images/headphones/sony-wh1000xm5.png",
@@ -385,7 +385,7 @@ export const allProductsMock = {
       brand: "Sony",
     },
     {
-      id: "h8",
+      id: "cdb18582-e45b-4590-bdf3-240d60523324",
       name: "Bose QuietComfort Earbuds II",
       price: 7990000,
       image: "/images/headphones/airpods-pro.png",
@@ -393,7 +393,7 @@ export const allProductsMock = {
       brand: "Bose",
     },
     {
-      id: "h9",
+      id: "b276698f-0917-45c5-85e2-5b5ed206aba5",
       name: "AirPods 3",
       price: 4490000,
       image: "/images/headphones/airpods-pro.png",
@@ -401,7 +401,7 @@ export const allProductsMock = {
       brand: "Apple",
     },
     {
-      id: "h10",
+      id: "4086fcec-eb02-4f7b-a619-72d11f9689b7",
       name: "Sony WH-CH720N",
       price: 2990000,
       image: "/images/headphones/sony-wh1000xm5.png",
@@ -409,7 +409,7 @@ export const allProductsMock = {
       brand: "Sony",
     },
     {
-      id: "h11",
+      id: "a10733f9-7113-45f6-8211-a981c7a25de4",
       name: "JBL Tune 510BT",
       price: 1290000,
       image: "/images/headphones/airpods-pro.png",
@@ -417,7 +417,7 @@ export const allProductsMock = {
       brand: "JBL",
     },
     {
-      id: "h12",
+      id: "f7095fbf-4aa0-4a82-9ded-d712e7dddec3",
       name: "Samsung Galaxy Buds 2",
       price: 2990000,
       image: "/images/headphones/sony-wh1000xm5.png",
@@ -425,7 +425,7 @@ export const allProductsMock = {
       brand: "Samsung",
     },
     {
-      id: "h13",
+      id: "700b0c81-02e1-49d4-9abb-f8b59dcdd301",
       name: "Bose SoundSport",
       price: 1990000,
       image: "/images/headphones/airpods-pro.png",
@@ -433,7 +433,7 @@ export const allProductsMock = {
       brand: "Bose",
     },
     {
-      id: "h14",
+      id: "79f38c60-7bd8-4a04-95bd-64b63cfd6bf2",
       name: "JBL Tune 230NC",
       price: 1890000,
       image: "/images/headphones/airpods-pro.png",
@@ -441,7 +441,7 @@ export const allProductsMock = {
       brand: "JBL",
     },
     {
-      id: "h15",
+      id: "ef8809a1-bd1a-46fb-aa89-3c475689cc2a",
       name: "Sony WF-C500",
       price: 1490000,
       image: "/images/headphones/sony-wh1000xm5.png",
@@ -451,7 +451,7 @@ export const allProductsMock = {
   ],
   accessories: [
     {
-      id: "a1",
+      id: "618b3780-7483-4e2e-9650-ac034407cc3e",
       name: "Sạc dự phòng 20000mAh",
       price: 990000,
       image: "/images/accessories/powerbank.png",
@@ -459,7 +459,7 @@ export const allProductsMock = {
       brand: "Anker",
     },
     {
-      id: "a2",
+      id: "00895ffe-22da-4875-a8ec-4bdf9087cdb5",
       name: "Ốp lưng iPhone 15 Pro",
       price: 490000,
       image: "/images/accessories/powerbank.png",
@@ -467,7 +467,7 @@ export const allProductsMock = {
       brand: "Spigen",
     },
     {
-      id: "a3",
+      id: "b45ec26d-6aac-4904-a065-9553703b4230",
       name: "Cáp sạc USB-C 100W",
       price: 390000,
       image: "/images/accessories/powerbank.png",
@@ -475,7 +475,7 @@ export const allProductsMock = {
       brand: "Belkin",
     },
     {
-      id: "a4",
+      id: "3ba43454-048e-4b3a-b969-e8533e3f6ed0",
       name: "Bộ sạc nhanh 65W",
       price: 790000,
       image: "/images/accessories/powerbank.png",
@@ -483,7 +483,7 @@ export const allProductsMock = {
       brand: "Anker",
     },
     {
-      id: "a5",
+      id: "338a225c-7137-4525-9023-42044c4b8ab2",
       name: "Giá đỡ điện thoại",
       price: 250000,
       image: "/images/accessories/powerbank.png",
@@ -491,7 +491,7 @@ export const allProductsMock = {
       brand: "Native Union",
     },
     {
-      id: "a6",
+      id: "393f0c62-df25-41cf-900a-c9bb10bbc2df",
       name: "Miếng dán cường lực",
       price: 290000,
       image: "/images/accessories/powerbank.png",
@@ -499,7 +499,7 @@ export const allProductsMock = {
       brand: "Spigen",
     },
     {
-      id: "a7",
+      id: "fb2fa111-2e1c-49c7-b112-6fcbd70197ab",
       name: "Sạc không dây MagSafe",
       price: 890000,
       image: "/images/accessories/powerbank.png",
@@ -507,7 +507,7 @@ export const allProductsMock = {
       brand: "Belkin",
     },
     {
-      id: "a8",
+      id: "6f3aff64-1a25-42d5-b08e-512117a65203",
       name: "Bao da iPad Pro",
       price: 1290000,
       image: "/images/accessories/powerbank.png",
@@ -515,7 +515,7 @@ export const allProductsMock = {
       brand: "Native Union",
     },
     {
-      id: "a9",
+      id: "b295047e-be83-42b8-925f-35077ec3c015",
       name: "Bút cảm ứng cho iPad",
       price: 1990000,
       image: "/images/accessories/powerbank.png",
@@ -523,7 +523,7 @@ export const allProductsMock = {
       brand: "Mophie",
     },
     {
-      id: "a10",
+      id: "355cb18a-2164-4289-97ec-4674d7d78eb6",
       name: "Cáp sạc Lightning",
       price: 290000,
       image: "/images/accessories/powerbank.png",
@@ -531,7 +531,7 @@ export const allProductsMock = {
       brand: "Anker",
     },
     {
-      id: "a11",
+      id: "7f0a5539-de9f-44a0-a172-4dc32d87fe8a",
       name: "Tai nghe có dây",
       price: 190000,
       image: "/images/accessories/powerbank.png",
@@ -539,7 +539,7 @@ export const allProductsMock = {
       brand: "Belkin",
     },
     {
-      id: "a12",
+      id: "0102e6f1-29fc-4201-9078-43097fa02916",
       name: "Ốp lưng Samsung S24",
       price: 390000,
       image: "/images/accessories/powerbank.png",
@@ -547,7 +547,7 @@ export const allProductsMock = {
       brand: "Spigen",
     },
     {
-      id: "a13",
+      id: "2e3b136e-3738-4534-bd1e-bb3fcd6687d4",
       name: "Đế sạc không dây",
       price: 590000,
       image: "/images/accessories/powerbank.png",
@@ -555,7 +555,7 @@ export const allProductsMock = {
       brand: "Mophie",
     },
     {
-      id: "a14",
+      id: "6c206934-d7d9-4c2b-9bb6-74540769c102",
       name: "Túi đựng laptop",
       price: 690000,
       image: "/images/accessories/powerbank.png",
@@ -563,7 +563,7 @@ export const allProductsMock = {
       brand: "Native Union",
     },
     {
-      id: "a15",
+      id: "af4ee6da-cad8-43ed-a856-f8e403572a01",
       name: "Bàn phím Bluetooth",
       price: 1490000,
       image: "/images/accessories/powerbank.png",

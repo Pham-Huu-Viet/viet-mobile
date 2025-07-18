@@ -5,7 +5,6 @@ import { slides } from "../../mock/data";
 
 export default function HeroSection() {
   const [currentIndexSlide, setCurrentIndexSlide] = useState(0);
-  console.log("currentIndexSlide:", currentIndexSlide);
 
   function handlePrevSlide() {
     if (currentIndexSlide > 0) {
@@ -24,7 +23,7 @@ export default function HeroSection() {
   }
 
   return (
-    <div className="section-container">
+    <div className="section-container py-12">
       <div className="section-content gap-2">
         {/* Text */}
         <div className="flex-col-start flex-1 flex-col gap-6">
@@ -34,8 +33,12 @@ export default function HeroSection() {
             prices and the best after-sales service.
           </p>
           <div className="flex-start gap-4">
-            <NavLink className="btn text-accent h-12">Shop Now</NavLink>
-            <NavLink className="btn h-12">View Promotions</NavLink>
+            <NavLink to={"/category/phones"} className="btn text-accent h-12">
+              Shop Now
+            </NavLink>
+            <NavLink to={"/promotions"} className="btn h-12">
+              View Promotions
+            </NavLink>
           </div>
         </div>
 

@@ -8,7 +8,10 @@
   --color-gray-hover: #dcdcdc;
 
   --color-accent: #6b6ef9;
+  --color-cancel: #ef4444;
   --color-favorite: #ef4444;
+
+  --color-text: #333333;
   --color-sub-text: #555555;
   --color-sub-text-2: #777777;
 
@@ -60,7 +63,7 @@
 
   body {
     @apply bg-gray-10 min-h-screen min-w-screen overflow-x-hidden text-base leading-relaxed text-gray-800 antialiased;
-    color: #333333;
+    color: var(--color-text);
     font-family: Inter, system-ui, sans-serif;
   }
 
@@ -109,12 +112,16 @@
   textarea {
     @apply focus:ring-accent rounded-sm border border-gray-300 px-3 py-2 focus:ring-2 focus:outline-none;
   }
+
+  input:-webkit-autofill {
+    transition: background-color 1000000000000000s ease-in-out 0s;
+  }
 }
 
 @layer components {
   /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
   .section-container {
-    @apply w-full py-12;
+    @apply w-full py-8;
   }
 
   .section-content {
@@ -159,7 +166,7 @@
   }
 
   .btn-icon-xs {
-    @apply shadow-neumorphism-xs flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
+    @apply shadow-neumorphism-xs flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
     svg {
       height: 20px;
       width: 20px;
@@ -170,7 +177,7 @@
   }
 
   .btn-icon {
-    @apply shadow-neumorphism-sm flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
+    @apply shadow-neumorphism-sm flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
     svg {
       height: 20px;
       width: 20px;
@@ -178,6 +185,18 @@
   }
   .btn-icon:active {
     @apply shadow-neumorphism-sm-active;
+  }
+
+  .input-item {
+    @apply shadow-neumorphism-sm-active flex h-10 flex-shrink-0 items-center justify-between rounded-xl bg-inherit;
+    svg {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  .input-content {
+    @apply border-none text-sm outline-none focus:border-none focus:ring-0 focus:outline-none;
   }
 
   .btn-icon-in-card {
@@ -188,6 +207,17 @@
     }
   }
   .btn-icon-in-card:active {
+    @apply shadow-neumorphism-xs-active;
+  }
+
+  .btn-icon-in-card-sm {
+    @apply shadow-neumorphism-xs flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-inherit select-none;
+    svg {
+      height: 16px;
+      width: 16px;
+    }
+  }
+  .btn-icon-in-card-sm:active {
     @apply shadow-neumorphism-xs-active;
   }
 
@@ -224,6 +254,30 @@
 
   .card-static-row {
     @apply shadow-neumorphism-sm relative flex h-full w-full items-center justify-between overflow-hidden rounded-xl bg-inherit p-4;
+  }
+
+  .text-neumorphism {
+    text-shadow:
+      1px 1px 1px var(--color-shadow-color),
+      -1px -1px 1px var(--color-shadow-highlight);
+  }
+}
+
+@layer utilities {
+  .label-fade {
+    background-color: var(--color-gray-20);
+    -webkit-mask-image: radial-gradient(
+      closest-side,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: radial-gradient(
+      closest-side,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
   }
 }
 

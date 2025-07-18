@@ -1,103 +1,122 @@
 import * as Slider from "@radix-ui/react-slider";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import DropDown from "./DropDown";
 import { capitalize } from "../../function/capitalize";
 import useGetDataStore from "../../hook/useGetDataStore";
 import { useDispatch } from "react-redux";
 import {
-  setFilteredPrice,
+  setFilteredPrices,
   setSelectedOptionPrice,
 } from "../../store/slices/categorySlice";
 import { showPrice } from "../../function/showPrice";
 
-export default function FilterPrice({ isResetSlider, setIsResetSlider }) {
+export default function FilterPrice({
+  isResetSlider,
+  setIsResetSlider,
+  setPreFilteredPrices,
+  preFilteredBrands,
+}) {
   const dispatch = useDispatch();
-  const { filteredPrice, listProductsOrigin, selectedOptionPrice } =
+  const { filteredPrices, listProductsBrand, selectedOptionPrice } =
     useGetDataStore();
 
   const optionPrices = [
-    "all Prices",
-    "under 2 million",
-    "from 2 to 7 million",
-    "over 7 million",
+    { label: "all Prices" },
+    { label: "under 2 million" },
+    { label: "from 2 to 7 million" },
+    { label: "over 7 million" },
   ];
 
   const [openPriceOption, setOpenPriceOption] = useState(false);
   const [allowUpdateSliderValue, setAllowUpdateSliderValue] = useState(false);
 
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
-  const [sliderValue, setSliderValue] = useState(filteredPrice);
+  const [minMaxPrice, setMinMaxPrice] = useState([0, 0]);
+  const [sliderValue, setSliderValue] = useState(filteredPrices);
 
-  console.log("minPrice:", minPrice);
-  console.log("maxPrice:", maxPrice);
+  console.log("minMaxPrice:", minMaxPrice);
   console.log("sliderValue:", sliderValue);
 
-  // update filteredPrice:
+  const debounceRef = useRef(null);
+
+  // Cập nhật minMaxPrice theo selectedOptionPrice
   useEffect(() => {
-    // get init max price
     const maxPriceDefault = Math.max(
-      ...(listProductsOrigin?.map((product) => Number(product.price)) || []),
+      ...(listProductsBrand?.map((product) => Number(product.price)) || []),
     );
+
     switch (selectedOptionPrice) {
-      case "all Prices":
-        setMinPrice(0);
-        setMaxPrice(maxPriceDefault);
-        break;
       case "under 2 million":
-        setMinPrice(0);
-        setMaxPrice(1999999);
+        setMinMaxPrice([0, 1999999]);
         break;
       case "from 2 to 7 million":
-        setMinPrice(2000000);
-        setMaxPrice(7000000);
+        setMinMaxPrice([2000000, 7000000]);
         break;
       case "over 7 million":
-        setMinPrice(7000001);
-        setMaxPrice(maxPriceDefault);
+        setMinMaxPrice([7000001, maxPriceDefault]);
         break;
       default:
-        setMinPrice(0);
-        setMaxPrice(maxPriceDefault);
+        setMinMaxPrice([0, maxPriceDefault]);
+        console.log(666);
         break;
     }
-  }, [selectedOptionPrice, listProductsOrigin]);
+  }, [selectedOptionPrice, listProductsBrand, preFilteredBrands]);
 
+  // Nếu User click chọn option Price -> allowUpdateSliderValue được bật, cập nhật sliderValue
   useEffect(() => {
-    // get init max price
+    if (allowUpdateSliderValue && minMaxPrice[0] >= 0 && minMaxPrice[1] >= 0) {
+      console.log(123);
+      setSliderValue(minMaxPrice);
+      setTimeout(() => {
+        setAllowUpdateSliderValue(false);
+      }, 500);
+    }
+  }, [minMaxPrice, allowUpdateSliderValue]);
+
+  // If filter Brands -> change SliderValue
+  useEffect(() => {
+    if (minMaxPrice[0] >= 0 && minMaxPrice[1] >= 0) {
+      console.log(1234);
+      setSliderValue(minMaxPrice);
+    }
+  }, [minMaxPrice, listProductsBrand]);
+
+  // Chỉ định giá trị khởi tạo khi filteredPrice rỗng (tải trang lần đầu)
+  useEffect(() => {
     const maxPriceDefault = Math.max(
-      ...(listProductsOrigin?.map((product) => Number(product.price)) || []),
+      ...(listProductsBrand?.map((product) => Number(product.price)) || []),
     );
 
-    if (filteredPrice?.length == 0) {
+    if (filteredPrices?.length === 0) {
+      console.log(12345);
       setSliderValue([0, maxPriceDefault]);
     }
   }, []);
 
-  // reset SliderValue
+  // Cập nhật Redux state mỗi khi sliderValue thay đổi, có debounce
   useEffect(() => {
-    if (minPrice >= 0 && maxPrice >= 0 && allowUpdateSliderValue) {
-      setSliderValue([minPrice, maxPrice]);
-      setAllowUpdateSliderValue(false);
-    }
-  }, [minPrice, maxPrice]);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
 
-  // Update FilteredPrice when change Slider
-  useEffect(() => {
-    dispatch(setFilteredPrice(sliderValue));
+    debounceRef.current = setTimeout(() => {
+      // dispatch(setFilteredPrices(sliderValue));
+      setPreFilteredPrices(sliderValue);
+    }, 300);
+
+    return () => clearTimeout(debounceRef.current);
   }, [sliderValue]);
 
-  // reset Slider when click Clear filter button:
+  // Reset slider khi click Clear Filter
   useEffect(() => {
     if (isResetSlider) {
-      setSliderValue([minPrice, maxPrice]);
+      console.log(123456);
+      setSliderValue(minMaxPrice);
       setTimeout(() => {
         setIsResetSlider(false);
       }, 500);
     }
-  }, [isResetSlider, minPrice, maxPrice]);
+  }, [isResetSlider, minMaxPrice]);
 
+  // UI handlers
   function handleClickOptionPrice() {
     setOpenPriceOption((prev) => !prev);
   }
@@ -113,7 +132,7 @@ export default function FilterPrice({ isResetSlider, setIsResetSlider }) {
       <h5 className="border-border-gray-20 mb-3 border-b pb-2">Price</h5>
 
       <div className="flex-col-center gap-2">
-        {/* Selected option price */}
+        {/* Option dropdown */}
         <div
           className="btn-in-card flex-center z-1 mb-3"
           onClick={handleClickOptionPrice}
@@ -122,7 +141,6 @@ export default function FilterPrice({ isResetSlider, setIsResetSlider }) {
           <ChevronDown size={16} className="ml-auto" />
         </div>
 
-        {/* Option Price */}
         <DropDown
           options={optionPrices}
           selectedOption={selectedOptionPrice}
@@ -130,17 +148,17 @@ export default function FilterPrice({ isResetSlider, setIsResetSlider }) {
           handleClick={handleSelectPriceOption}
         />
 
-        {/* range price */}
+        {/* Giá min - max hiển thị */}
         <div className="flex-between mb-4 w-full">
-          <span>{showPrice(filteredPrice?.[0])}</span>
-          <span>{showPrice(filteredPrice?.[1])}</span>
+          <span>{showPrice(sliderValue?.[0])}</span>
+          <span>{showPrice(sliderValue?.[1])}</span>
         </div>
 
         {/* Slider */}
         <Slider.Root
           className="relative mb-6 flex w-full touch-none items-center select-none"
-          min={minPrice}
-          max={maxPrice}
+          min={minMaxPrice[0]}
+          max={minMaxPrice[1]}
           step={10000}
           value={sliderValue}
           onValueChange={(val) => setSliderValue(val)}

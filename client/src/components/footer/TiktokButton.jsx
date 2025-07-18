@@ -1,9 +1,9 @@
-import { TiktokLogo } from "phosphor-react";
+import { PiTiktokLogo } from "react-icons/pi";
 
 export default function TiktokButton() {
   return (
     <div className="btn-icon">
-      <TiktokLogo size={24} weight="bold" />
+      <PiTiktokLogo size={24} />
     </div>
   );
 }

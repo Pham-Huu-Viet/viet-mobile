@@ -116,6 +116,18 @@
   input:-webkit-autofill {
     transition: background-color 1000000000000000s ease-in-out 0s;
   }
+
+  th {
+    @apply px-4 py-2 font-light;
+  }
+
+  td {
+    @apply p-3;
+
+    * {
+      @apply flex items-center justify-center;
+    }
+  }
 }
 
 @layer components {
@@ -126,6 +138,10 @@
 
   .section-content {
     @apply mx-auto flex h-full w-full max-w-[1200px] justify-between px-4;
+  }
+
+  .section-admin {
+    @apply flex w-full flex-col justify-start gap-8 !p-6;
   }
 
   .zigzag > *:nth-child(even) {
@@ -265,19 +281,23 @@
 
 @layer utilities {
   .label-fade {
-    background-color: var(--color-gray-20);
-    -webkit-mask-image: radial-gradient(
-      closest-side,
-      rgba(0, 0, 0, 1) 90%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    mask-image: radial-gradient(
-      closest-side,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    mask-composite: exclude;
-    -webkit-mask-composite: destination-out;
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      );
+    mask-composite: intersect;
+    -webkit-mask-composite: destination-in;
   }
 }
 

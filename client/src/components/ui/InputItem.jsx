@@ -8,6 +8,7 @@ export default function InputItem({
   iconLeft,
   iconRight,
   handleIconRight,
+  background,
 }) {
   console.log("value:", value);
 
@@ -21,13 +22,13 @@ export default function InputItem({
         <input
           id={id}
           type={type ? type : "text"}
-          className="peer input-content h-full w-full pl-4"
+          className="peer input-content h-full w-full pl-3"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
         <label
           htmlFor={id}
-          className={`bg-gray-20 label-fade text-sub-text-2 absolute left-2.5 origin-left -translate-y-1/2 cursor-text p-2 transition-all select-none peer-focus:-top-0 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs ${value?.length > 0 ? "top-0 scale-90 text-xs" : "top-1/2 text-sm"}`}
+          className={` ${background ?? "bg-gray-20"} label-fade text-sub-text-2 absolute left-1 origin-left -translate-y-1/2 cursor-text p-2 transition-all select-none peer-focus:-top-0 peer-focus:left-1 peer-focus:scale-90 peer-focus:text-xs ${value?.length > 0 ? "top-0 scale-90 text-xs" : "top-1/2 text-sm"}`}
         >
           {placeholder ? placeholder : "Type Here..."}
         </label>

@@ -7,12 +7,13 @@ export default function DropDown({
   condition,
   handleClick,
   className,
+  positionDrop,
 }) {
   return (
     <AnimatePresence>
       {condition && (
         <motion.div
-          className={`card-static-col mb-4 h-fit items-start rounded-lg p-0 ${className || ""}`}
+          className={`card-static-col ${positionDrop} ${positionDrop == "absolute" ? "top-[calc(100%+8px)]" : "mt-2"} right-0 z-200 mb-4 h-fit min-w-fit items-start rounded-lg p-0 ${className || ""}`}
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
@@ -28,16 +29,16 @@ export default function DropDown({
               className="hover:bg-gray-hover transition-quick flex-between w-full cursor-pointer gap-4 px-4 py-2 leading-none whitespace-nowrap select-none"
               style={{
                 color:
-                  option.label == selectedOption.label
-                    ? "var(--color-accent)"
-                    : "",
+                  option?.label == selectedOption ? "var(--color-accent)" : "",
               }}
               onClick={() => handleClick(option.label)}
             >
               {capitalize(option.label)}
 
               {option.icon && (
-                <div className="flex-center text-sub-text">{option.icon}</div>
+                <div className="flex-center text-sub-text h-4 w-4">
+                  {option.icon}
+                </div>
               )}
             </div>
           ))}

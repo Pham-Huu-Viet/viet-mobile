@@ -1,7 +1,7 @@
 import { User, LogIn, LogOut } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DropDown from "../category/DropDown";
+import DropDown from "../ui/DropDown";
 
 export default function UserButton() {
   const navigate = useNavigate();

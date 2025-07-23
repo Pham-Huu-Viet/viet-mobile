@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import { NavLink, useParams } from "react-router-dom";
 import useGetDataStore from "../../hook/useGetDataStore";
+import { listNavItem } from "../../config/navbar";
 
 export default function NavBar() {
   const { categoryName } = useParams();
   const { searchInput } = useGetDataStore();
-
-  const listNavItem = ["Phones", "Tablets", "Headphones", "Accessories"];
 
   return (
     <div className="flex gap-2">

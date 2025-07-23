@@ -53,6 +53,16 @@ export default function useGetDataStore() {
     (state) => state.promotionsSlice.listPromotions,
   );
 
+  // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Admin:
+
+  // User
+  const searchUser = useSelector((state) => state.userSlice.searchUser);
+  const userRole = useSelector((state) => state.userSlice.userRole);
+  const userStatus = useSelector((state) => state.userSlice.userStatus);
+
   return {
     // categorySlice:
     currentCategory,
@@ -77,5 +87,13 @@ export default function useGetDataStore() {
 
     // promotionsSlice:
     listPromotions,
+
+    // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Admin:
+
+    // User:
+    searchUser,
+    userRole,
+    userStatus,
   };
 }

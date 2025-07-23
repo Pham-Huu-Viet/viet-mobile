@@ -1,15 +1,11 @@
 import * as Slider from "@radix-ui/react-slider";
-import { ChevronDown } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import DropDown from "./DropDown";
-import { capitalize } from "../../function/capitalize";
 import useGetDataStore from "../../hook/useGetDataStore";
 import { useDispatch } from "react-redux";
-import {
-  setFilteredPrices,
-  setSelectedOptionPrice,
-} from "../../store/slices/categorySlice";
+import { setSelectedOptionPrice } from "../../store/slices/categorySlice";
 import { showPrice } from "../../function/showPrice";
+import MenuDropDown from "../ui/MenuDropDown";
+import { optionPrices } from "../../config/category";
 
 export default function FilterPrice({
   isResetSlider,
@@ -21,14 +17,6 @@ export default function FilterPrice({
   const { filteredPrices, listProductsBrand, selectedOptionPrice } =
     useGetDataStore();
 
-  const optionPrices = [
-    { label: "all Prices" },
-    { label: "under 2 million" },
-    { label: "from 2 to 7 million" },
-    { label: "over 7 million" },
-  ];
-
-  const [openPriceOption, setOpenPriceOption] = useState(false);
   const [allowUpdateSliderValue, setAllowUpdateSliderValue] = useState(false);
 
   const [minMaxPrice, setMinMaxPrice] = useState([0, 0]);
@@ -116,15 +104,9 @@ export default function FilterPrice({
     }
   }, [isResetSlider, minMaxPrice]);
 
-  // UI handlers
-  function handleClickOptionPrice() {
-    setOpenPriceOption((prev) => !prev);
-  }
-
   function handleSelectPriceOption(option) {
     dispatch(setSelectedOptionPrice(option));
     setAllowUpdateSliderValue(true);
-    setOpenPriceOption(false);
   }
 
   return (
@@ -132,20 +114,12 @@ export default function FilterPrice({
       <h5 className="border-border-gray-20 mb-3 border-b pb-2">Price</h5>
 
       <div className="flex-col-center gap-2">
-        {/* Option dropdown */}
-        <div
-          className="btn-in-card flex-center z-1 mb-3"
-          onClick={handleClickOptionPrice}
-        >
-          {capitalize(selectedOptionPrice)}{" "}
-          <ChevronDown size={16} className="ml-auto" />
-        </div>
-
-        <DropDown
+        {/* Menu Price option */}
+        <MenuDropDown
           options={optionPrices}
           selectedOption={selectedOptionPrice}
-          condition={openPriceOption}
-          handleClick={handleSelectPriceOption}
+          onClickOption={handleSelectPriceOption}
+          className="w-full"
         />
 
         {/* Giá min - max hiển thị */}

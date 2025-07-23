@@ -3,12 +3,16 @@ import { Provider } from "react-redux";
 import categorySlice from "./slices/categorySlice";
 import cardSlice from "./slices/cardSlice";
 import promotionsSlice from "./slices/promotionsSlice";
+import userSlice from "./slices/admin/userSlice";
 
 const store = configureStore({
   reducer: {
     categorySlice: categorySlice.reducer,
     cardSlice: cardSlice.reducer,
     promotionsSlice: promotionsSlice.reducer,
+
+    // admin
+    userSlice: userSlice.reducer,
   },
 });
 

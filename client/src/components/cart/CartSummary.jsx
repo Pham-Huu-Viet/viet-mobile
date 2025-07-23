@@ -3,9 +3,9 @@ import { ImGift } from "react-icons/im";
 import { IoQrCodeOutline } from "react-icons/io5";
 import { useState } from "react";
 import { showPrice } from "../../function/showPrice";
-import InputItem from "../auth/InputItem";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import PaymentMethod from "./PaymentMethod";
+import InputItem from "../ui/InputItem";
 
 export default function CartSummary() {
   const [discountCode, setDiscountCode] = useState("");

@@ -2,7 +2,7 @@ import { Eye, EyeClosed, Lock, User } from "lucide-react";
 import { SlSocialGoogle, SlSocialFacebook } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import InputItem from "../components/auth/InputItem";
+import InputItem from "../components/ui/InputItem";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");

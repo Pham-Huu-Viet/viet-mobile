@@ -1,9 +1,13 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
 import userRoutes from "./userRoutes";
 import adminRoutes from "./adminRoutes";
 import NotFound from "../pages/NotFound,";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   userRoutes,
   adminRoutes,
   {
